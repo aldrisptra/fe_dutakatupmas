@@ -2,6 +2,7 @@ import { ProductsType } from "@/types";
 import Categories from "./Categories";
 import ProductCard from "./ProductCard";
 import Link from "next/dist/client/link";
+import Filter from "./Filter";
 
 // TEMPORARY
 const products: ProductsType = [
@@ -16,9 +17,9 @@ const products: ProductsType = [
     sizes: ["S", "M", "L", "XL", "XXL"],
     colors: ["Gray", "Purple", "Green"],
     images: {
-      gray: "/products/1g.png",
-      purple: "/products/1p.png",
-      green: "/products/1gr.png",
+      Gray: "/products/1g.png",
+      Purple: "/products/1p.png",
+      Green: "/products/1gr.png",
     },
   },
   {
@@ -32,8 +33,8 @@ const products: ProductsType = [
     sizes: ["S", "M", "L", "XL", "XXL"],
     colors: ["Gray", "Green"],
     images: {
-      gray: "/products/2g.png",
-      green: "/products/2gr.png",
+      Gray: "/products/2g.png",
+      Green: "/products/2gr.png",
     },
   },
   {
@@ -45,11 +46,11 @@ const products: ProductsType = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     price: 79.9,
     sizes: ["S", "M", "L", "XL", "XXL"],
-    colors: ["Black", "Blue", "Red"],
+    colors: ["Black", "Blue", "Green"],
     images: {
-      black: "/products/3b.png",
-      blue: "/products/3bl.png",
-      red: "/products/3r.png",
+      Black: "/products/3b.png",
+      Blue: "/products/3bl.png",
+      Green: "/products/3gr.png",
     },
   },
   {
@@ -61,10 +62,10 @@ const products: ProductsType = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     price: 29.9,
     sizes: ["S", "M", "L", "XL", "XXL"],
-    colors: ["Black", "Gray"],
+    colors: ["Pink", "Gray"],
     images: {
-      black: "/products/4b.png",
-      gray: "/products/4g.png",
+      Pink: "/products/4p.png",
+      Gray: "/products/4w.png",
     },
   },
   {
@@ -76,10 +77,11 @@ const products: ProductsType = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     price: 19.9,
     sizes: ["One Size"],
-    colors: ["Black", "White"],
+    colors: ["Black", "Orange", "Red"],
     images: {
-      black: "/products/5b.png",
-      white: "/products/5w.png",
+      Black: "/products/5bl.png",
+      Orange: "/products/5o.png",
+      Red: "/products/5r.png",
     },
   },
   {
@@ -91,10 +93,10 @@ const products: ProductsType = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     price: 19.9,
     sizes: ["One Size"],
-    colors: ["Black", "White"],
+    colors: ["Gray", "White"],
     images: {
-      black: "/products/5b.png",
-      white: "/products/5w.png",
+      Gray: "/products/6g.png",
+      White: "/products/6w.png",
     },
   },
   {
@@ -106,10 +108,10 @@ const products: ProductsType = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     price: 19.9,
     sizes: ["One Size"],
-    colors: ["Black", "White"],
+    colors: ["Gray", "Pink"],
     images: {
-      black: "/products/5b.png",
-      white: "/products/5w.png",
+      Gray: "/products/7g.png",
+      Pink: "/products/7p.png",
     },
   },
   {
@@ -121,18 +123,25 @@ const products: ProductsType = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     price: 19.9,
     sizes: ["One Size"],
-    colors: ["Black", "White"],
+    colors: ["Blue", "Green"],
     images: {
-      black: "/products/5b.png",
-      white: "/products/5w.png",
+      Blue: "/products/8b.png",
+      Green: "/products/8gr.png",
     },
   },
 ];
 
-const ProductList = ({ category }: { category: string }) => {
+const ProductList = ({
+  category,
+  params,
+}: {
+  category: string;
+  params: "homepage" | "products";
+}) => {
   return (
     <div className="w-full">
       <Categories />
+      {params === "products" && <Filter />}
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-12">
         {products.map((product) => (
           <ProductCard key={product.id} product={product} />

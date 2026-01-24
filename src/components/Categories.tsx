@@ -55,7 +55,7 @@ const categories = [
 
 const Categories = () => {
   const searchParams = useSearchParams();
-  const roter = useRouter();
+  const router = useRouter();
   const pathname = usePathname();
 
   const selectCategory = searchParams.get("category");
@@ -63,7 +63,7 @@ const Categories = () => {
   const handleChange = (value: string | null) => {
     const params = new URLSearchParams(searchParams);
     params.set("category", value || "all");
-    roter.push(`${pathname}?${params.toString()}`, { scroll: false });
+    router.push(`${pathname}?${params.toString()}`, { scroll: false });
   };
 
   return (
