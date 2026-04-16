@@ -15,14 +15,16 @@ const ProductList = ({
     <div className="w-full">
       <Categories />
       {params === "products" && <Filter />}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12">
+
+      <div className="grid grid-cols-2 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {products.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
       </div>
+
       <Link
         href={category ? `/products/?category=${category}` : "/products"}
-        className="flex justify-end mt-4 underline text-sm text-gray-500"
+        className="mt-6 inline-flex justify-end text-sm font-medium text-blue-500 hover:text-blue-300 transition-colors"
       >
         View all products
       </Link>

@@ -28,19 +28,19 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        suppressHydrationWarning
-      >
-        <div className="mx-auto p-4 sm:px-0 sm:max-w-xl md:max-w-2xl lg:max-w-3xl xl:max-w-6xl">
-          <Navbar />
-          {children}
-          <Footer />
-        </div>
-        <ToastContainer position="bottom-right" />
-      </body>
-    </html>
-  </ClerkProvider>  
+      <html lang="en">
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+          suppressHydrationWarning
+        >
+          <div className="mx-auto p-4 sm:px-0 sm:max-w-xl md:max-w-2xl lg:max-w-3xl xl:max-w-6xl">
+            <Navbar />
+            {children}
+            <Footer />
+          </div>
+          <ToastContainer position="bottom-right" />
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
